@@ -248,11 +248,6 @@
   background-color: var(--main-color);
 }
 
-.theme-menu__button:disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
 .theme-menu__button:disabled .theme-menu__button-text::after {
   width: 0%;
 }
