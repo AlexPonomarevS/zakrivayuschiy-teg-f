@@ -107,6 +107,7 @@
 }
 
 .theme-menu__button:focus-visible {
+  outline: none;
   opacity: 0.6;
 }
 
@@ -151,7 +152,7 @@
 .watermark {
   position: absolute;
   top: 25px;
-  right: 12px;
+  right: 24px;
   font-family: var(--accent-font-family), fantasy;
   font-size: 14px;
   opacity: 0.5;
@@ -228,11 +229,44 @@
   cursor: pointer;
 }
 
-.card__icon-button:focus {
-  outline: none;
+.card__icon-button:focus .like-icon {
+  outline-offset: -3px;
+  outline: 2px solid var(--main-color);
 }
 
 .card__icon-button:focus-visible .like-icon {
+  outline-offset: -3px;
+  outline: 2px solid var(--main-color);
+}
+
+.theme-menu__button-text::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: var(--main-color);
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled .theme-menu__button-text::after {
+  width: 0%;
+}
+
+.theme-menu__button:focus-visible .theme-menu__button-text::after {
+  width: 100%;
+}
+
+.like-icon:focus {
+  outline-offset: -3px;
+  outline: 2px solid var(--main-color);
+}
+
+.like-icon:focus-visible {
   outline-offset: -3px;
   outline: 2px solid var(--main-color);
 }
@@ -255,13 +289,24 @@
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button:focus {
+.button-focus-hover:focus {
   box-shadow: 2px 2px var(--main-color);
+  outline: none;
 }
 
-.card__like-button:focus-visible {
-  border: 2px solid var(--main-color);
+.button-focus-hover:focus-visible {
+  box-shadow: 2px 2px var(--main-color);
   outline: none;
+}
+
+.button-focus-hover::before {
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button-focus-hover:hover::before {
+  transform: scaleX(1);
 }
 
 .button-all::before {
@@ -273,16 +318,6 @@
   height: 100%;
   width: 100%;
   background-color: var(--main-color);
-}
-
-.card__like-button::before {
-  transform: scaleX(0);
-  transform-origin: 0 0;
-  transition: transform 0.5s ease-in-out;
-}
-
-.card__like-button:hover::before {
-  transform: scaleX(1);
 }
 
 .button__text {
@@ -301,33 +336,18 @@
 }
 
 .save-button {
-  margin: 52px auto 100px;
+  margin: 0px auto 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 8px;
-  max-width: 306px;
-  width: 100%;
+  width: 306px;
   min-height: 84px;
   font-family: var(--accent-font-family), fantasy;
   overflow: hidden;
   z-index: 0;
   mix-blend-mode: difference;
-}
-
-.save-button:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--main-color);
-}
-
-.save-button::before {
-  transform: scale(0, 1);
-  transform-origin: left;
-  background-color: var(--main-color);
-}
-
-.save-button:hover::before {
-  transform: scale(1, 1);
 }
 
 .floppy-icon {
@@ -347,7 +367,7 @@
 .dialog {
   max-width: 341px;
   width: 100%;
-  padding: 32px 42px;
+  padding: 30px 42px;
   border: 2px solid var(--main-color);
   background: var(--background-color);
 }
@@ -395,7 +415,8 @@
 @media (width >= 1440px) {
   .save-button {
     flex-direction: row;
-    max-width: 335px;
+    max-width: none;
+    min-width: 335px;
     min-height: 55px;
   }
   .floppy-icon {
@@ -404,6 +425,7 @@
   }
   .dialog {
     max-width: 357px;
+    padding: 30px;
   }
 }
 

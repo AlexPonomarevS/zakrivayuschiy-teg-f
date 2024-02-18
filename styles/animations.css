@@ -45,7 +45,7 @@
 
 .like-icon .contour {
   fill: var(--main-color);
-  transition: fill 0.3s linear 0.06s;
+  transition: fill 0.1s linear;
 }
 
 .like-icon:not(.is-liked):hover .main-body {
@@ -72,6 +72,10 @@
   animation: sparks 0.3s ease-in 0.3s alternate;
 }
 
+.theme-menu__button:disabled::before {
+  animation: them-pointer 0.5s ease-in-out infinite alternate;
+}
+
 @keyframes sparks {
   to {
     fill: red;
@@ -92,4 +96,22 @@
   to {
     transform: scale(1.5);
   }
+}
+
+@keyframes them-pointer {
+  to {
+    left: -16px;
+  }
+}
+
+.theme-menu__button:hover {
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:focus-visible {
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button-text::after {
+  transition: width 0.3s ease;
 }
