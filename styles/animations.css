@@ -14,80 +14,82 @@
 */
 
 .like-icon.is-liked .heart {
-    animation: heart-scaling 0.3s ease-in 0.1s alternate;
-    transform-origin: center;
-  }
-  
-  .like-icon.is-liked .contour {
+  animation: heart-scaling 0.3s ease-in 0.1s alternate;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .contour {
+  fill: red;
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: red;
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: red;
+  transition: fill 0.3s linear;
+}
+
+.like-icon .main-body {
+  fill: var(--background-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .core {
+  fill: var(--background-color);
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon .contour {
+  fill: var(--main-color);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon:not(.is-liked):hover .main-body {
+  fill: var(--main-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:not(.is-liked):hover .core {
+  fill: var(--main-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: red;
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: red;
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s alternate;
+}
+
+@keyframes sparks {
+  to {
     fill: red;
-    transition: fill 0.3s linear 0.06s;
+  }
+}
+
+@keyframes moving {
+  to {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes heart-scaling {
+  from {
+    transform: scale(1);
   }
 
-  .like-icon.is-liked .main-body {
-    fill: red;
-    transition: fill 0.3s linear 0.05s;
+  to {
+    transform: scale(1.5);
   }
-
-  .like-icon.is-liked .core {
-    fill: red;
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon .main-body {
-    fill: var(--background-color);
-    transition: fill 0.3s linear;
-  }
-
-  .like-icon .core {
-    fill: var(--background-color);
-    transition: fill 0.3s linear 0.03s;
-  }
-  
-  .like-icon:hover .main-body {
-    fill: var(--main-color);
-    transition: fill 0.3s linear 0.05s;
-  }
-
-  .like-icon:hover .core {
-    fill: var(--main-color);
-    transition: fill 0.3s linear;
-  }
-  
-  .like-icon:active .main-body {
-    fill: red;
-  }
-  
-  .like-icon:active .core {
-    fill: red;
-  }
-  
-
-  
-  .like-icon.is-liked .sparks {
-    animation: sparks 0.3s ease-in 0.3s alternate backwards;
-  }
-  
-  @keyframes sparks {
-    
-    to {
-      fill: red;
-    }
-  }
-  
-  @keyframes moving {
-    
-    to {
-      transform: translateX(4px);
-    }
-  }
-  
-  @keyframes heart-scaling {
-  
-    from {
-      transform: scale(1);
-    }
-  
-    to {
-      transform: scale(1.5);
-    }
-  }
+}
