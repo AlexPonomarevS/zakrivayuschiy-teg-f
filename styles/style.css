@@ -152,7 +152,7 @@
 .watermark {
   position: absolute;
   top: 25px;
-  right: 24px;
+  right: 14px;
   font-family: var(--accent-font-family), fantasy;
   font-size: 14px;
   opacity: 0.5;
@@ -160,6 +160,12 @@
   text-shadow: -1px 0 var(--background-color), 0 1px var(--background-color),
     1px 0 var(--background-color), 0 -1px var(--background-color);
   mix-blend-mode: hard-light;
+}
+
+@media (width >= 1440px) {
+  .watermark {
+    right: 24px;
+  }
 }
 
 .filter_sepia {
@@ -374,8 +380,8 @@
 }
 
 .dialog-icon {
-  min-width: 28px;
-  min-height: 28px;
+  min-width: 39px;
+  min-height: 39px;
 }
 
 .dialog-conteiner {
